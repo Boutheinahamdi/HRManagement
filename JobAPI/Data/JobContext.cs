@@ -11,10 +11,10 @@ namespace JobAPI.Data
 		{
 			var client = new MongoClient(configuration["DataBaseSettings:ConnectionString"]);
 			var database = client.GetDatabase(configuration["DataBaseSettings:DatabaseName"]);
-			project = database.GetCollection<Job>(configuration["DataBaseSettings:CollectionName"]);
-			seedData(project);
+			job = database.GetCollection<Job>(configuration["DataBaseSettings:CollectionName"]);
+			seedData(job);
 		}
-		public IMongoCollection<Job> project { get; }
+		public IMongoCollection<Job> job { get; }
 		public static void seedData(IMongoCollection<Job> blogsCollection)
 		{
 			bool existBlog = blogsCollection.Find(b => true).Any();

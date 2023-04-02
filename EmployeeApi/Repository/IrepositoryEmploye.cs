@@ -1,15 +1,16 @@
 ﻿using EmployeeApi.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EmployeeApi.Repository
 {
     public interface IrepositoryEmploye
     {
-        public IEnumerable<Employee> GetAll();
-   
-        public Employee GetById(string id);
-        public void AddEmploye(Employee employe);
-      
-        public void DeleteEmploye(string id);
-    }
+		Task<IEnumerable<Departement>> GetDepartments();
+
+
+		Task AddDepartement(Departement departement);
+
+		Task<bool> DeleteDepartement(string id);
+	}
 }

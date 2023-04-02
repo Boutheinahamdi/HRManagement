@@ -1,4 +1,5 @@
 using EmployeeApi.Data;
+using EmployeeApi.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,9 @@ namespace EmployeeApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmployeeApi", Version = "v1" });
             });
             services.AddScoped<EmployeContext>();
-        }
+			services.AddScoped<DepartementContext>();
+			services.AddScoped<IrepositoryEmploye,ImpDep >();
+		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

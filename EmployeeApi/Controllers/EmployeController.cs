@@ -39,7 +39,7 @@ namespace EmployeeApi.Controllers
 
         public async Task<ActionResult<Employee>> GetByID(string id)
         {
-            var emp = await _context.employe.Find(x => x.Fname == id).FirstOrDefaultAsync();
+            var emp = await _context.employe.Find(x => x.ID == id).FirstOrDefaultAsync();
 
             if (emp is null)
             {
@@ -48,34 +48,27 @@ namespace EmployeeApi.Controllers
 
             return emp;
         }
-        [HttpGet("{job}")]
-        public async Task<ActionResult<Employee>> GetByJob(string job)
-        {
-            var emp = await _context.employe.Find(x => x.job == job).FirstOrDefaultAsync();
 
-            if (emp is null)
-            {
-                return NotFound();
-            }
 
-            return emp;
-        }
+        
         [HttpPost]
         public async Task<ActionResult<Employee>> AddEmployee(Employee emp)
         {
             emp.ID = ObjectId.GenerateNewId().ToString();
-            _context.employe.InsertOne(emp);
+			 _context.employe.InsertOne(emp);
 
 
               return NoContent(); ;
 
         }
-        [HttpDelete("{name}")]
-        public async Task<IActionResult> DeleteEmployee(string name)
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEmployee(string id)
         {
            
 
-            var emp = await _context.employe.Find(x => x.Fname == name).FirstOrDefaultAsync();
+            var emp = await _context.employe.Find(x => x.ID == id).FirstOrDefaultAsync();
 
             if (emp is null)
             {

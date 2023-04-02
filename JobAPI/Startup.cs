@@ -1,3 +1,5 @@
+using JobAPI.Data;
+using JobAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +27,25 @@ namespace JobAPI
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-
+			services.AddCors(options =>
+			{
+				options.AddPolicy("bbb",
+								  policy =>
+								  {
+									  policy.WithOrigins("*")
+														  .AllowAnyHeader()
+														  .AllowAnyMethod();
+								  });
+			});
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "JobAPI", Version = "v1" });
 			});
+			services.AddScoped<JobContext>();
+			services.AddScoped<ApplicantContext>();
+
+			services.AddScoped<Igeneric, JobImplement>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +57,7 @@ namespace JobAPI
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobAPI v1"));
 			}
+			app.UseCors("bbb");
 
 			app.UseRouting();
 

@@ -27,6 +27,16 @@ namespace DashbordMangment
                 client.BaseAddress = new Uri("http://localhost:6001/");
                 //client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
             });
+			services.AddHttpClient("EmployeAPI", client => {
+
+				client.BaseAddress = new Uri("http://localhost:5001/");
+				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
+			});
+			services.AddHttpClient("JobAPI", client => {
+
+				client.BaseAddress = new Uri("http://localhost:5002/");
+				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
+			});
 			services.AddControllersWithViews();
         }
 

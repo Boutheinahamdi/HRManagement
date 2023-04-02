@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace JobAPI.Models
+namespace DashbordMangment.Models
 {
 	public class Job
 	{
