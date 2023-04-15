@@ -1,4 +1,5 @@
 ﻿using DashbordMangment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace DashbordMangment.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
 		private readonly ILogger<ProjectController> _logger;

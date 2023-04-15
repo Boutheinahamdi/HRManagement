@@ -1,3 +1,5 @@
+using DashbordMangment.Models;
+using DashbordMangment.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +39,12 @@ namespace DashbordMangment
 				client.BaseAddress = new Uri("http://localhost:5002/");
 				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
 			});
+			var mongoDbSettings = Configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();
+			services.AddIdentity<ApplicationUser, ApplicationRole>()
+	   .AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>
+	   (
+		   mongoDbSettings.ConnectionString, mongoDbSettings.Name
+	   );
 			services.AddControllersWithViews();
         }
 
@@ -54,8 +62,10 @@ namespace DashbordMangment
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            
 
             app.UseEndpoints(endpoints =>
             {
