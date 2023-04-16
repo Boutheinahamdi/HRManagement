@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DashbordMangment.Controllers
 {
-    public class HomeController : Controller
+	[Authorize]
+	public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            return View();
-        }
+			return View();
+		}
     }
 }
