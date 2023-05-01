@@ -1,6 +1,7 @@
-﻿using Amazon.Util.Internal;
+﻿
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Http;
 
 namespace JobAPI.Models
 {
@@ -14,6 +15,10 @@ namespace JobAPI.Models
         public string email { get; set; }
         public string message { get; set; }
         public int Phone { get; set; }
-       
-    }
+		public string CvPath { get; set; }
+		[BsonIgnore]
+		public IFormFile Cv { get; set; }
+
+
+	}
 }

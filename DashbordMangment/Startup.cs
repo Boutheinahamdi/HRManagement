@@ -39,6 +39,7 @@ namespace DashbordMangment
 				client.BaseAddress = new Uri("http://localhost:5002/");
 				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
 			});
+			
 			var mongoDbSettings = Configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();
 			services.AddIdentity<ApplicationUser, ApplicationRole>()
 	   .AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>

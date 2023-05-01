@@ -167,69 +167,34 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form asp-controller="Project" asp-action="Add" method="post" >
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Project Name</label>
-								<input class="form-control" type="text">
+								<input class="form-control" type="text" name="pname">
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Client</label>
-								<select class="select">
-									<option>Global Technologies</option>
-									<option>Delta Infotech</option>
-								</select>
+								<label>Progress</label>
+								<input class="form-control" type="text" name="progress">
 							</div>
 						</div>
+						
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Start Date</label>
+								<label>Deadline</label>
 								<div class="cal-icon">
-									<input class="form-control datetimepicker" type="text">
+									<input class="form-control datetimepicker" type="text" name="deadline">
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>End Date</label>
-								<div class="cal-icon">
-									<input class="form-control datetimepicker" type="text">
-								</div>
-							</div>
-						</div>
+						
 					</div>
-					<div class="row">
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label>Rate</label>
-								<input placeholder="$50" class="form-control" type="text">
-							</div>
-						</div>
-						<div class="col-sm-3">
-							<div class="form-group">
-								<label>&nbsp;</label>
-								<select class="select">
-									<option>Hourly</option>
-									<option>Fixed</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>Priority</label>
-								<select class="select">
-									<option>High</option>
-									<option>Medium</option>
-									<option>Low</option>
-								</select>
-							</div>
-						</div>
-					</div>
+					
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
@@ -278,12 +243,9 @@
 					</div>
 					<div class="form-group">
 						<label>Description</label>
-						<textarea rows="4" class="form-control summernote" placeholder="Enter your message here"></textarea>
+						<textarea rows="4" class="form-control summernote" placeholder="Enter your message here" name="description"></textarea>
 					</div>
-					<div class="form-group">
-						<label>Upload Files</label>
-						<input class="form-control" type="file">
-					</div>
+					
 					<div class="submit-section">
 						<button class="btn btn-primary submit-btn">Submit</button>
 					</div>

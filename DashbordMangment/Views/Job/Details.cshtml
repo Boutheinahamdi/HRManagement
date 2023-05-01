@@ -175,7 +175,7 @@
 					</div>
 					<div class="col-md-4">
 						<div class="job-det-info job-widget">
-							<a class="btn job-btn" href="#" data-toggle="modal" data-target="#apply_job">Apply For This Job</a>
+							<a class="btn job-btn" asp-controller="Applicant"  asp-action="Apply">Apply For This Job</a>
 							<div class="info-list">
 								<span><i class="fa fa-bar-chart"></i></span>
 								<h5>Job Type</h5>
@@ -219,44 +219,7 @@
 			</div>
 			<!-- /Page Content -->
 			<!-- Apply Job Modal -->
-			<div class="modal custom-modal fade" id="apply_job" role="dialog">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Add Your Details</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="form-group">
-									<label>Name</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group">
-									<label>Email Address</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group">
-									<label>Message</label>
-									<textarea class="form-control"></textarea>
-								</div>
-								<div class="form-group">
-									<label>Upload your CV</label>
-									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="cv_upload">
-										<label class="custom-file-label" for="cv_upload">Choose file</label>
-									</div>
-								</div>
-								<div class="submit-section">
-									<button class="btn btn-primary submit-btn">Submit</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- /Apply Job Modal -->
 
 		</div>

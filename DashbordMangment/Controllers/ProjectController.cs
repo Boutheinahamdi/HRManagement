@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection.Metadata;
+using System.Text;
 using System.Threading.Tasks;
 
 
@@ -42,6 +43,26 @@ namespace DashbordMangment.Controllers
 			return RedirectToAction("Index");
 
 		}
-		
+		public async Task<IActionResult> Add(string pname, int progress, string deadline, string description)
+		{
+
+			Project project = new Project();
+			project.Name= pname;
+			project.progress= progress;
+			project.Deadline= deadline;
+			project.Description = description;
+
+
+			var json = JsonConvert.SerializeObject(project);
+			var content = new StringContent(json, Encoding.UTF8, "application/json");
+			var response = await _httpclientProject.PostAsync("/api/Project", content);
+
+
+
+
+
+			return RedirectToAction("Index");
+		}
+
 	}
 }
