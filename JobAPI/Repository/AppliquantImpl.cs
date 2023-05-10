@@ -17,7 +17,8 @@ namespace JobAPI.Repository
 		}
 		public async Task AddAppliquant(Applicant applicant)
 		{
-			applicant.ID = ObjectId.GenerateNewId().ToString();
+			
+			
 			await _context.applicant.InsertOneAsync(applicant);
 		}
 

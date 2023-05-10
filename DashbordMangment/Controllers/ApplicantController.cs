@@ -38,13 +38,14 @@ namespace DashbordMangment.Controllers
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> Apply(string name, string email, string message,IFormFile upload)
+		public async Task<IActionResult> Apply(string name, string email, string message,int phone)
 		{
 			Applicant applicant = new Applicant();
 			applicant.name=name;
-			applicant.email = email;
+			applicant.email =email;
 			applicant.message = message;
-			applicant.Cv = upload;
+			applicant.Phone = phone;
+
 
 
 

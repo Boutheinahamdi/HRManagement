@@ -35,6 +35,20 @@ namespace DashbordMangment.Controllers
             return View(ProjectList);
 
         }
+
+		public async Task<IActionResult> KananBoard()
+		{
+			var response = await _httpclientProject.GetAsync("/api/Project");
+			var content = await response.Content.ReadAsStringAsync();
+			var ProjectList = JsonConvert.DeserializeObject<IEnumerable<Project>>(content);
+
+
+
+
+			return View(ProjectList);
+
+		}
+
 		// GET: Products/Delete/5
 		public async Task<IActionResult> Delete(string? id)
 		{

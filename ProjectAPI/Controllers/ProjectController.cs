@@ -23,8 +23,11 @@ namespace ProjectAPI.Controllers
             var projects = await _repository.GetProjects();
             return Ok(projects);
         }
+		
 
-        [HttpGet("{id}", Name = "GetProject")]
+
+
+		[HttpGet("{id}", Name = "GetProject")]
         public async Task<ActionResult<Project>> GetProjectById(string id)
         {
             var project = await _repository.GetProjectById(id);

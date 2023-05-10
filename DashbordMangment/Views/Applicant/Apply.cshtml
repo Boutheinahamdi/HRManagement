@@ -1,7 +1,8 @@
-﻿@{
+﻿@model Applicant
+@{
 	Layout = null;
 }
-@model Applicant
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,19 +53,17 @@
 	</div>
 	<div class="form-group">
 		<label>Email Address</label>
-		<input class="form-control" type="text" name="email">
+			<input class="form-control" type="text" name="email">
 	</div>
 	<div class="form-group">
 		<label>Message</label>
 		<textarea class="form-control" name="message"></textarea>
 	</div>
-	<div class="form-group">
-		<label>Upload your CV</label>
-		<div class="custom-file">
-			<input type="file" class="custom-file-input" id="cv_upload" name="upload">
-			<label class="custom-file-label" for="cv_upload">Choose file</label>
+		<div class="form-group">
+			<label>Phone Number </label>
+			<input class="form-control" name="phone">
 		</div>
-	</div>
+	
 	<div class="submit-section">
 		<button class="btn btn-primary submit-btn">Submit</button>
 	</div>
