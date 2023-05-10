@@ -26,18 +26,18 @@ namespace DashbordMangment
         {
 			services.AddHttpClient("ProjectAPI", client => {
 
-                client.BaseAddress = new Uri("http://localhost:6001/");
-                //client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
-            });
+                //client.BaseAddress = new Uri("http://localhost:6001/");
+				client.BaseAddress = new Uri(Configuration["ProjectAPI"]);
+			});
 			services.AddHttpClient("EmployeAPI", client => {
 
-				client.BaseAddress = new Uri("http://localhost:5001/");
-				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
+				//client.BaseAddress = new Uri("http://localhost:5001/");
+				client.BaseAddress = new Uri(Configuration["EmployeAPI"]);
 			});
 			services.AddHttpClient("JobAPI", client => {
 
-				client.BaseAddress = new Uri("http://localhost:5002/");
-				//client.BaseAddress = new Uri(Configuration["BlogApiUrl"]);
+				//client.BaseAddress = new Uri("http://localhost:5002/");
+				client.BaseAddress = new Uri(Configuration["JobAPI"]);
 			});
 			
 			var mongoDbSettings = Configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();

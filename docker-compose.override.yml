@@ -1,0 +1,72 @@
+version: '3.4'
+
+services:
+  dashbordmangment:
+    container_name: dashboard
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://identitydb:27021"
+      - "ProjectAPI=http://projectapi"
+      - "EmployeAPI=http://employeApi"
+      - "JobAPI=http://JobApi"
+    depends_on:
+      - identity.db 
+      - employeeapi
+      - jobapi
+      - projectapi
+
+    ports:
+      - "8000:80"
+
+  employeeapi:
+    container_name: employeApi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://employdb:27017" 
+    depends_on:
+      - employe.db
+    ports:
+      - "8001:80"
+
+
+  jobapi:
+    container_name: JobApi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://jobbdb:27019"
+    depends_on:
+      - job.db
+    ports:
+      - "8002:80"
+
+
+  projectapi:
+    container_name: projectapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DataBaseSettings:ConnectionString=mongodb://projectdb:27018"
+    depends_on:
+      -  project.db
+    ports:
+      - "8003:80"
+  employe.db:
+    container_name: employdb
+    restart: always
+    ports:
+      - 27017:27017
+  project.db:
+    container_name: projectdb
+    restart: always
+    ports:
+      - 27018:27017 
+  job.db:
+    container_name: jobbdb
+    restart: always
+    ports:
+      - 27019:27017
+  identity.db:
+    container_name: identitydb
+    restart: always
+    ports:
+      - 27021:27017
+

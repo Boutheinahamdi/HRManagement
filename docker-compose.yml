@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  dashbordmangment:
+    image: ${DOCKER_REGISTRY-}dashbordmangment
+    build:
+      context: .
+      dockerfile: DashbordMangment/Dockerfile
+
+  employeeapi:
+    image: ${DOCKER_REGISTRY-}employeeapi
+    build:
+      context: .
+      dockerfile: EmployeeApi/Dockerfile
+
+
+  jobapi:
+    image: ${DOCKER_REGISTRY-}jobapi
+    build:
+      context: .
+      dockerfile: JobAPI/Dockerfile
+
+
+  projectapi:
+    image: ${DOCKER_REGISTRY-}projectapi
+    build:
+      context: .
+      dockerfile: ProjectAPI/Dockerfile
+  employe.db:
+    image: mongo 
+  project.db:
+    image: mongo 
+  job.db:
+    image: mongo
+  identity.db:
+    image: mongo
+

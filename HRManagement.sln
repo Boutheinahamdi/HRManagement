@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeApi", "EmployeeApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectAPI", "ProjectAPI\ProjectAPI.csproj", "{36753223-4A93-46DF-8F6B-A1F74EA079C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobAPI", "JobAPI\JobAPI.csproj", "{6EFECA35-B533-4CF8-98B2-C77EA77645FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobAPI", "JobAPI\JobAPI.csproj", "{6EFECA35-B533-4CF8-98B2-C77EA77645FC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{26CC6A14-52AE-4666-B6CC-F4B043C487D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6EFECA35-B533-4CF8-98B2-C77EA77645FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EFECA35-B533-4CF8-98B2-C77EA77645FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EFECA35-B533-4CF8-98B2-C77EA77645FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CC6A14-52AE-4666-B6CC-F4B043C487D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CC6A14-52AE-4666-B6CC-F4B043C487D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CC6A14-52AE-4666-B6CC-F4B043C487D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CC6A14-52AE-4666-B6CC-F4B043C487D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
